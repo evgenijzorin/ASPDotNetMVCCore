@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">   
+    <div>                    
+        <button type="button" asp-area="" onclick="location.href='@Url.Action("products", "Catalog")'">вывести каталог товаров</button>       
+        <a class="navbar-brand" asp-area="" asp-controller="Catalog" asp-action="products">вывести каталог товаров</a>
+    </div>
+
+
+</div>
