@@ -7,6 +7,9 @@
         <button type="button" asp-area="" onclick="location.href='@Url.Action("products", "Catalog")'">вывести каталог товаров</button>       
         <a class="navbar-brand" asp-area="" asp-controller="Catalog" asp-action="products">вывести каталог товаров</a>
     </div>
-
-
+        
+    <div>                    
+        <button type="button" asp-area="" onclick="location.href='@Url.Action("Index", "AddNewProduct")'">Добавление нового товара</button>       
+        <a class="navbar-brand" asp-area="" asp-controller="AddNewProduct" asp-action="Index">Добавление нового товара</a>
+    </div>
 </div>

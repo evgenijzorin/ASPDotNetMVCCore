@@ -12,8 +12,7 @@ builder.Services.AddTransient<
     IAllProducts,       // какой интерфейс 
     MockProducts> ();   // какой класс реализует интерфейс
 builder.Services.AddTransient<ICategorys, MockCategorys>();
-
-
+               
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
