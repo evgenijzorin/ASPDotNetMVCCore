@@ -1,16 +1,16 @@
-﻿@model TheadSafeCatalog
+﻿@model Catalog
 
 @{
     ViewData["Title"] = "Список категорий";
 }
 
-@foreach (var category in Model.Categories())
+@foreach (var category in Model.Categories)
 {
     <div>@category.Id @category.Name</div>
 }
 
 <form method="post">
-    Id: <input type="text" name="id" required value ="@Guid.NewGuid()" />
+    Id: <input type="text" name="id" required />
     <br/>
     Имя: <input type="text" name="name" />
     <br/>
