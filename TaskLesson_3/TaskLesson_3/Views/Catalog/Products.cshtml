@@ -1,0 +1,50 @@
+﻿@model Catalog
+
+@{
+    ViewData["Title"] = "Список товаров";
+}
+
+<div class="row mt-5 mb-2">
+    @* в ряд с отступом сверху 5 и отступ снизу 2 (бутстрап)*@
+    @foreach (var product in Model.Products)
+    {
+        <div class="col-lg-4">
+            Id: @product.Id
+            <br />
+            Имя: @product.Name
+            <br />
+            Описание: @product.Description
+            <br />
+            Цена: @product.Price
+            <br />                      
+            Категория: @if(@Model.Categories.Contains(new Category { Id = 1734, Name = "_" }))
+            {
+               @Model.Categories.Find(item => item.Id==@product.CategoryId).Name
+            }       
+            <br />
+            <img class="img-thumbnail" src="@product.Image" alt="@product.Name">
+        </div>
+    }
+</div>
+
+<form method="post">
+    Id: <input type="text" name="id" required />
+    <br />
+    Имя: <input type="text" name="name" />
+    <br />
+    Описание: <input type="text" name="Description" />
+    <br />
+    Цена: <input type="text" name="Price" />
+    <br />
+    Категория:
+    <select id="CategoryId" name="CategoryId">
+        @foreach (var category in Model.Categories)
+        {
+            <option value=@category.Id>@category.Name</option>
+        }
+    </select>
+    <br />
+    Изображение: <input type="text" name="Image" />
+    <br />
+    <input type="submit" name="submit" value="Создать" />
+</form>
