@@ -1,0 +1,22 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<h1> Каталог </h1>
+<h3>@Model.currentCategory</h3> 
+<div class="row mt-5 mb-2">  @* в ряд с отступом сверху 5 и отступ снизу 2 (бутстрап)*@
+   @{
+        foreach (Product product in Model.products)
+        {
+            <div class="col-lg-4"> @* Вывести в формате сетки. Ячейка в длину 4ед. из 12ед.*@
+            <h4>Наименование: @product.Name</h4>
+            <img class="img-thumbnail" src="@product.Image" alt="@product.Name">
+            <h4>Описание: @product.Description</h4>
+            </div>
+        }
+}
+</div>  
+
+
+
+
+
