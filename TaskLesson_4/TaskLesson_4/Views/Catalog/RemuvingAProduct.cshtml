@@ -1,0 +1,36 @@
+﻿@model ThreadSafeCatalog
+
+@{
+    ViewData["Title"] = "Список товаров";
+}
+
+<div class="row mt-5 mb-2">
+    @* в ряд с отступом сверху 5 и отступ снизу 2 (бутстрап)*@
+    @foreach (var product in Model.Products())
+    {
+        <div class="col-lg-4">
+            Id: @product.Id
+            <br />
+            Имя: @product.Name
+            <br />
+            Описание: @product.Description
+            <br />
+            Цена: @product.Price
+            <br />                
+            Категория: 
+            @if(@product.CategoryId != null)
+            {
+               @Model.Categories().Find(item => item.Id==@product.CategoryId).Name
+            }       
+            <br />
+            <img class="img-thumbnail" src="@product.Image" alt="@product.Name">
+        </div>
+    }
+</div>
+
+<form method="post">
+    <p>Удалить продукт</p>
+    Id: <input type="text" name="id" value ="@Guid.NewGuid()" required />
+    <br />
+    <input type="submit" name="submit" value="Удалить" />
+</form>
