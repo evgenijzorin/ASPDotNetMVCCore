@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+  
+<h1> Каталог </h1>
+<h3>@Model.currentCategory</h3>
+@* <h3>@ViewBag.Category</h3>   переданное значение через ViewBag *@
+<div class="row mt-5 mb-2">
+    @* в ряд с отступом сверху 5 и отступ снизу 2 (бутстрап)*@
+    @{
+        foreach (var product in Model.allProducts)  // примеч: Model с большой буквы
+        {
+            // Вывести в html формате
+            <div class="col-lg-6">   
+                <h2>Наименование: @product.Name</h2>
+                <img class="img-thumbnail" src="@product.Image" alt="@product.Name" />
+                <p>Цена: @product.Price.ToString("c")</p>   @* вывести в денежном формате *@   
+            </div>
+        }
+    }
+</div>
+
+
+@{
+}
