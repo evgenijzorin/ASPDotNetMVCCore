@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    
+<h1> Добавление в каталог нового товара </h1>
+<h3>@Model.currentCategory</h3>
+
+@using (Html.BeginForm("Add", "AddNewProduct", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal"> 
+     <!-- атрибут name такой же как в контроллере у метода параметр -->
+       <h2>Наименование: Name</h2> <input type="text" name="name" id="ls" />
+        <h2>Описание: Description</h2> <input type="text" name="description" id="ls" />
+       <h2>Цена: Price</h2> <input type="text" name="price" id="ls" />                
+        <h2>Ссылка на изображение: Image</h2> <input type="text" name="image" id="ls" />
+
+        <button class="btn btn-info" type="submit">Добавить</button>
+    </div>
+       
+    <div>                    
+        <button type="button" asp-area="" onclick="location.href='@Url.Action("products", "Catalog")'">вывести каталог товаров</button>       
+        <a class="navbar-brand" asp-area="" asp-controller="Catalog" asp-action="products">вывести каталог товаров</a>
+    </div>
+}
+
